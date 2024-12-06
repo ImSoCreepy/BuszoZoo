@@ -1,0 +1,41 @@
+<%- include('header') -%>
+
+<div class="container pt-4">
+    <h1 class="text-center" style="font-size:400%;"><%= typeof passenger === 'undefined' ? 'Új utas' : 'Utas adatainak módosítása' %></h1>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <form method="POST">
+                <input type="hidden" name="id" value="<%= typeof passenger === 'undefined' ? '' : passenger._id %>">
+                <div class="mb-3">
+                    <label for="p_name" class="form-label">Név</label>
+                    <input type="text" class="form-control" id="p_name" name="p_name" value="<%= typeof passenger === 'undefined' ? '' : passenger.name %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dateOfBirth" class="form-label">Születési idő</label>
+                    <input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="pl.: 1999.01.01." value="<%= typeof passenger === 'undefined' ? '' : passenger.dateOfBirth %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">Lakhely (város)</label>
+                    <input type="text" class="form-control" id="city" name="city" value="<%= typeof passenger === 'undefined' ? '' : passenger.city %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hairColor" class="form-label">Hajszín</label>
+                    <input type="text" class="form-control" id="hairColor" name="hairColor" value="<%= typeof passenger === 'undefined' ? '' : passenger.hairColor %>" required>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center">
+                        <a class="btn btn-lg btn-outline-danger fw-semibold" href="/passenger/<%= bus._id %>">
+                            Mégse
+                        </a>
+                    </div>
+                    <div class="col-6 text-center">
+                        <input type="submit" class="btn btn-lg btn-outline-success fw-semibold" href="/passenger/<%= bus._id %>" value="Mentés"/>
+                    </div>
+                </div>               
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') -%>

@@ -1,0 +1,23 @@
+{
+  "name": "hazi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha test/unit/**/*.js",
+    "coverage": "nyc report --reporter=html --reporter=text"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "mongoose": "^8.8.0"
+  },
+  "devDependencies": {
+    "chai": "^4.4.1",
+    "mocha": "^10.8.2",
+    "nyc": "^17.1.0"
+  }
+}

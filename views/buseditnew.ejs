@@ -1,0 +1,44 @@
+<%- include('header') -%>
+
+<div class="container pt-4">
+    <h1 class="text-center" style="font-size:400%;"><%= typeof bus === 'undefined' ? 'Új járat' : 'Járat adatainak módosítása' %></h1>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <form method="POST">
+                <input type="hidden" name="id" value="<%= typeof bus === 'undefined' ? '' : bus._id %>">
+                <div class="mb-3">
+                    <label for="regNum" class="form-label">Rendszám</label>
+                    <input type="text" class="form-control" id="regNum" name="regNum" placeholder="pl.: ABC-123" value="<%= typeof bus === 'undefined' ? '' : bus.regNum %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="make" class="form-label">Márka</label>
+                    <input type="text" class="form-control" id="make" name="make" value="<%= typeof bus === 'undefined' ? '' : bus.make %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="color" class="form-label">Szín</label>
+                    <input type="text" class="form-control" id="color" name="color" value="<%= typeof bus === 'undefined' ? '' : bus.color %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="articulated" class="form-label">Csuklós</label>
+                    <select class="form-select" id="articulated" name="articulated">
+                        <option value=false <%= typeof bus !== 'undefined' && bus.articulated === false ? 'selected' : '' %>>Nem</option>
+                        <option value=true <%= typeof bus !== 'undefined' && bus.articulated === true ? 'selected' : '' %>>Igen</option>
+                    </select>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center">
+                        <a class="btn btn-lg btn-outline-danger fw-semibold" href="/">
+                            Mégse
+                        </a>
+                    </div>
+                    <div class="col-6 text-center">
+                        <input type="submit" class="btn btn-lg btn-outline-success fw-semibold" href="/" value="Mentés"/>
+                    </div>
+                </div>               
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') -%>
